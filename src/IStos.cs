@@ -18,7 +18,16 @@
         //w interfejsie nie deklaruje się konstruktora
 
         //wstawia element typu T na stos
-        void Push(T value);
+        void Push(T value)
+        {
+            if (szczyt == tab.Length - 1)
+            {
+                ToArray.Resize(ref tab, tab.Length * 2);
+            }
+
+            szczyt++;
+            tab[szczyt] = value;
+        }
 
         //zwraca szczytowy element stosu
         T Peek { get; }
